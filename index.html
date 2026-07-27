@@ -182,5 +182,22 @@
   쇼핑커넥트 실적 알리미 · Windows 전용<br>
   문의·건의: <a href="https://open.kakao.com/o/gzTyuwFi" target="_blank">카카오 오픈채팅방</a>
 </footer>
+<script>
+(function () {
+  var PING = "https://script.google.com/macros/s/AKfycbyde3FbOYpb9E2ClsZ6L8LhgSd4lwgnT7XJCZ5NQw77RIMqMohPH_T7tmCpkNpuqXfr/exec";
+  var ref = new URLSearchParams(location.search).get("ref") || "직접방문";
+  function ping(kind) {
+    try {
+      fetch(PING + "?id=" + encodeURIComponent("웹방문") +
+            "&v=" + encodeURIComponent(ref) + "&m=" + kind,
+            { mode: "no-cors", keepalive: true });
+    } catch (e) {}
+  }
+  ping("visit");
+  document.querySelectorAll(".dl-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { ping("download"); });
+  });
+})();
+</script>
 </body>
 </html>
