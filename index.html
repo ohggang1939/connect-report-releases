@@ -136,14 +136,19 @@
 
   <section>
     <h2 class="sec">설치 방법</h2>
-    <p class="sec-sub">전체 15분 · 프로그램에 그림 가이드가 내장되어 있습니다</p>
+    <p class="sec-sub">전체 5분 · 프로그램에 그림 가이드가 내장되어 있습니다</p>
     <div class="steps">
       <div class="step"><span class="n"></span><div><b>다운로드 후 압축 풀기 → 설치.bat 실행</b>
         <p>자동보고 스케줄 등록과 바로가기 생성이 자동으로 되고, 그림 설치가이드와 관리 화면이 열립니다.</p></div></div>
-      <div class="step"><span class="n"></span><div><b>카카오톡 연결</b>
-        <p>보고를 받을 무료 열쇠를 발급받는 과정입니다. 가이드 그림대로 따라 하면 됩니다 (최초 1회, 약 8분).</p></div></div>
+      <div class="step"><span class="n"></span><div><b>카카오톡 연결 (30초)</b>
+        <p>[카카오로 연결하기] 버튼 → 카카오 로그인 → 동의 한 번이면 끝. 회원가입도, 복잡한 설정도 없습니다.</p></div></div>
       <div class="step"><span class="n"></span><div><b>네이버 계정 등록 + 보고 시간 설정</b>
-        <p>네이버 로그인('로그인 상태 유지' 체크!) 후 원하는 보고 시간을 정하면 끝. 다음 날부터 자동으로 카톡이 옵니다.</p></div></div>
+        <p>네이버 로그인('로그인 상태 유지' 체크!) 후 원하는 보고 시간을 정하면 끝.</p></div></div>
+      <div class="step"><span class="n"></span><div><b>컴퓨터만 켜두면 끝! (설정시간에 꺼져있더라도 컴퓨터를 켜면 바로 자동으로 보내줘요!)</b>
+        <p>PC를 완전히 종료하지 않고 켜두거나 절전(잠자기)으로 두면, 다음 날부터 매일 자동으로 실적 카톡이 도착합니다.</p>
+        <p style="margin-top:6px">💡 <b>왜 컴퓨터를 켜둬야 하나요?</b> 네이버는 보안 정책상 외부 서버가 회원의 실적 정보를
+        대신 조회하는 것을 차단합니다. 그래서 실적 확인은 반드시 <b>본인 PC의 본인 로그인</b>으로만 가능하고,
+        알리미도 본인 PC에서 직접 확인해 보내드리는 방식입니다. 덕분에 로그인 정보가 밖으로 나갈 일도 없습니다.</p></div></div>
     </div>
     <div class="note">⚠️ 처음 실행할 때 Windows 파란색 보안 경고가 뜰 수 있습니다. 아직 소규모 무료 프로그램이라
       Microsoft 인증서(유료)를 붙이지 않아서 나오는 표준 경고로, <b>"추가 정보 → 실행"</b>을 누르면 됩니다.</div>
@@ -153,7 +158,7 @@
     <h2 class="sec">자주 묻는 질문</h2>
     <p class="sec-sub"></p>
     <details><summary>정말 무료인가요?</summary>
-      <p>네, 무료입니다. 새 기능이 나오면 자동으로 업데이트됩니다.</p></details>
+      <p>네, 실적 알리미 기능은 평생 무료입니다.</p></details>
     <details><summary>비밀번호나 개인정보를 가져가지 않나요?</summary>
       <p>비밀번호는 저장되지 않으며, 계정·실적 정보는 본인 PC 밖으로 나가지 않습니다.
          품질 개선을 위한 익명 사용 통계(무작위 설치번호·버전·실행 여부)만 전송됩니다.</p></details>
@@ -162,7 +167,8 @@
     <details><summary>실적은 언제 기준인가요?</summary>
       <p>전일(어제) 기준입니다. 네이버가 당일 실적을 다음날 오전 6시에 집계하기 때문에, 보고 시간은 오전 6시 이후를 권장합니다.</p></details>
     <details><summary>설치하다 막히면요?</summary>
-      <p>오픈채팅방으로 오세요. 화면을 보며 도와드립니다. 👉 <a href="https://open.kakao.com/o/gzTyuwFi" target="_blank">문의 오픈채팅방</a></p></details>
+      <p>오픈채팅방으로 오세요. 어려운 점이나 개선사항, 원하시는 기능을 알려주시면 적극 반영하겠습니다.
+         👉 <a href="https://open.kakao.com/o/gzTyuwFi" target="_blank">문의 오픈채팅방</a></p></details>
   </section>
 
   <section>
@@ -179,5 +185,22 @@
   쇼핑커넥트 실적 알리미 · Windows 전용<br>
   문의·건의: <a href="https://open.kakao.com/o/gzTyuwFi" target="_blank">카카오 오픈채팅방</a>
 </footer>
+<script>
+(function () {
+  var PING = "https://script.google.com/macros/s/AKfycbyde3FbOYpb9E2ClsZ6L8LhgSd4lwgnT7XJCZ5NQw77RIMqMohPH_T7tmCpkNpuqXfr/exec";
+  var ref = new URLSearchParams(location.search).get("ref") || "직접방문";
+  function ping(kind) {
+    try {
+      fetch(PING + "?id=" + encodeURIComponent("웹방문") +
+            "&v=" + encodeURIComponent(ref) + "&m=" + kind,
+            { mode: "no-cors", keepalive: true });
+    } catch (e) {}
+  }
+  ping("visit");
+  document.querySelectorAll(".dl-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { ping("download"); });
+  });
+})();
+</script>
 </body>
 </html>
